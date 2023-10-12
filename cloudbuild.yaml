@@ -25,4 +25,4 @@ timeout: 1200s
 images:
   - '$_AR_HOSTNAME/$PROJECT_ID/$_SERVICE_NAME:$COMMIT_SHA'
 options:
-  logging: GCS_ONLY
+  logging: CLOUD_LOGGING_ONLY
