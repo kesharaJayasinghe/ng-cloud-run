@@ -36,12 +36,12 @@ steps:
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:
-    - 'run'
-    - 'deploy'
-    - $_SERVICE_NAME
-    - '--image'
-    - 'gcr.io/$PROJECT_ID/$_SERVICE_NAME:$COMMIT_SHA'
-    - '--region'
-    - $_DEPLOY_REGION
+      - 'run'
+      - 'deploy'
+      - $_SERVICE_NAME
+      - '--image'
+      - 'gcr.io/$PROJECT_ID/$_SERVICE_NAME:$COMMIT_SHA'
+      - '--region'
+      - $_DEPLOY_REGION
   images:
-  - 'gcr.io/$PROJECT_ID/$_SERVICE_NAME:$COMMIT_SHA'
+    - 'gcr.io/$PROJECT_ID/$_SERVICE_NAME:$COMMIT_SHA'
