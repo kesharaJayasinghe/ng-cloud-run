@@ -36,7 +36,7 @@ jobs:
         uses: google-github-actions/deploy-cloudrun@v1
         with:
           image: gcr.io/gcp-cloud-run-01/webapp:v2.1:latest
-          service: ng-cloud-run-service
+          service: ng-cloud-run-service-00001-7h4
           region: us-central1
           env_vars: |
             FOO=bar
