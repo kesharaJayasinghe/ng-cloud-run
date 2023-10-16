@@ -1,16 +1,15 @@
 FROM node:16-alpine3.16 as build
-WORKDIR /usr/src/app
-COPY package*.json ./
+WORKDIR /app
+COPY ./package*.json .
 
-RUN npm install
+RUN npm ci
 
 COPY . .
-RUN npm run build --prod
+RUN npm run build
 
-FROM nginx:latest
-
-COPY --from=build /usr/src/app/dist/* /usr/share/nginx/html
-
-EXPOSE 80
+FROM nginx:1.23.0-alpine
+EXPOSE 8080
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /app/dist/ng-cloud-run /usr/share/nginx/html
 # Run the web service on container startup.
 CMD ["nginx", "-g", "daemon off;"]
